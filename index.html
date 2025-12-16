@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>XAT Full Mock Test</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #eef1f5;
+    margin: 0;
+}
+header {
+    background: #003366;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+.timer {
+    font-size: 18px;
+    font-weight: bold;
+}
+.container {
+    display: flex;
+}
+.sidebar {
+    width: 220px;
+    background: #ffffff;
+    padding: 10px;
+    border-right: 2px solid #ccc;
+}
+.sidebar button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-weight: bold;
+}
+.palette {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+}
+.palette button {
+    padding: 6px;
+    font-size: 12px;
+}
+.main {
+    flex: 1;
+    padding: 20px;
+}
+.question {
+    margin-bottom: 20px;
+}
+.options label {
+    display: block;
+    margin: 6px 0;
+}
+.hidden {
+    display: none;
+}
+.submit-btn {
+    background: green;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>XAT FULL MOCK TEST</h2>
+<div class="timer">Time Left: <span id="time">170:00</span></div>
+</header>
+
+<div class="container">
+
+<!-- Sidebar -->
+<div class="sidebar">
+<button onclick="showSection('VALR')">VALR</button>
+<button onclick="showSection('DM')">DM</button>
+<button onclick="showSection('QADI')">QADI</button>
+
+<h4>Question Palette</h4>
+<div class="palette" id="palette"></div>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+<form id="testForm">
+
+<!-- ================= VALR SECTION ================= -->
+<div id="VALR" class="section">
+
+<h3>VALR Section</h3>
+
+<div class="question" id="q1">
+<p><b>1. Which of the following cannot be inferred from the poem?</b></p>
+<div class="options">
+<label><input type="radio" name="q1" value="A"> Just by being human, everyone is part of humanity</label>
+<label><input type="radio" name="q1" value="B"> Each death diminishes the strength of the human race</label>
+<label><input type="radio" name="q1" value="C"> No man is expendable</label>
+<label><input type="radio" name="q1" value="D"> It is every man for himself</label>
+</div>
+</div>
+
+<div class="question" id="q2">
+<p><b>2. Choose the best option to fill the blanks.</b></p>
+<div class="options">
+<label><input type="radio" name="q2" value="A"> optimisation; future; cultures; real</label>
+<label><input type="radio" name="q2" value="B"> validation; predilection; practices; imaginary</label>
+<label><input type="radio" name="q2" value="C"> transformation; trajectory; alliances; potential</label>
+<label><input type="radio" name="q2" value="D"> psychosis; prediction; allies; large</label>
+</div>
+</div>
+
+<!-- MORE VALR QUESTIONS WILL BE ADDED HERE -->
+
+</div>
+
+<!-- ================= DM SECTION ================= -->
+<div id="DM" class="section hidden">
+<h3>Decision Making Section</h3>
+<p>DM questions loading next…</p>
+</div>
+
+<!-- ================= QADI SECTION ================= -->
+<div id="QADI" class="section hidden">
+<h3>QADI Section</h3>
+<p>QADI questions loading next…</p>
+</div>
+
+<br>
+<button type="button" class="submit-btn" onclick="submitTest()">SUBMIT TEST</button>
+
+</form>
+</div>
+</div>
+
+<script>
+/* TIMER */
+let time = 170 * 60;
+setInterval(() => {
+    if (time <= 0) {
+        submitTest();
+    }
+    let m = Math.floor(time / 60);
+    let s = time % 60;
+    document.getElementById("time").innerText =
+        m + ":" + (s < 10 ? "0" + s : s);
+    time--;
+}, 1000);
+
+/* SECTION SWITCH */
+function showSection(id) {
+    document.querySelectorAll(".section").forEach(s => s.classList.add("hidden"));
+    document.getElementById(id).classList.remove("hidden");
+}
+
+/* PALETTE */
+const totalQuestions = 75;
+const palette = document.getElementById("palette");
+for (let i = 1; i <= totalQuestions; i++) {
+    let btn = document.createElement("button");
+    btn.innerText = i;
+    btn.onclick = () => document.getElementById("q" + i)?.scrollIntoView();
+    palette.appendChild(btn);
+}
+
+/* SUBMIT */
+function submitTest() {
+    alert("Test submitted! (Scoring logic will be added after full paper upload)");
+}
+</script>
+
+</body>
+</html>
+
+
+<div id="VALR" class="section">
+
+<h3>VALR Section (26 Questions)</h3>
+
+<!-- Q1 -->
+<div class="question" id="q1">
+<p><b>1. Which of the following cannot be inferred from the poem?</b></p>
+<label><input type="radio" name="q1" value="A"> Just by being human, everyone is part of humanity</label>
+<label><input type="radio" name="q1" value="B"> Each death diminishes the strength of the human race</label>
+<label><input type="radio" name="q1" value="C"> No man is expendable</label>
+<label><input type="radio" name="q1" value="D"> It is every man for himself</label>
+<label><input type="radio" name="q1" value="E"> Death is coming for everyone</label>
+</div>
+
+<!-- Q2 -->
+<div class="question" id="q2">
+<p><b>2. Choose the best option to fill the blanks.</b></p>
+<label><input type="radio" name="q2" value="A"> optimisation; future; cultures; real</label>
+<label><input type="radio" name="q2" value="B"> validation; predilection; practices; imaginary</label>
+<label><input type="radio" name="q2" value="C"> transformation; trajectory; alliances; potential</label>
+<label><input type="radio" name="q2" value="D"> psychosis; prediction; allies; large</label>
+<label><input type="radio" name="q2" value="E"> cauldron; upswing; relations; unpredictable</label>
+</div>
+
+<!-- Q3 -->
+<div class="question" id="q3">
+<p><b>3. Which sentences have INCORRECT usage of prepositions?</b></p>
+<label><input type="radio" name="q3" value="A"> 1, 2, and 3</label>
+<label><input type="radio" name="q3" value="B"> 4, 5, and 6</label>
+<label><input type="radio" name="q3" value="C"> 3, 4, and 6</label>
+<label><input type="radio" name="q3" value="D"> 3, 4, and 5</label>
+<label><input type="radio" name="q3" value="E"> 2, 3, and 4</label>
+</div>
+
+<!-- Q4 -->
+<div class="question" id="q4">
+<p><b>4. Which statement can be BEST concluded from the passage on dinosaur extinction?</b></p>
+<label><input type="radio" name="q4" value="A"> Geological disasters happen frequently</label>
+<label><input type="radio" name="q4" value="B"> Not all species went extinct</label>
+<label><input type="radio" name="q4" value="C"> All species go extinct once every 66 million years</label>
+<label><input type="radio" name="q4" value="D"> Asteroid strikes are frequent</label>
+<label><input type="radio" name="q4" value="E"> Mass extinctions and asteroid impacts are correlated</label>
+</div>
+
+<!-- Q5 -->
+<div class="question" id="q5">
+<p><b>5. Fill in the blanks appropriately.</b></p>
+<label><input type="radio" name="q5" value="A"> Astonishing; amazing; amazing</label>
+<label><input type="radio" name="q5" value="B"> Surprising; fulfilling; unfulfilling</label>
+<label><input type="radio" name="q5" value="C"> Amazing; shocking; shocking</label>
+<label><input type="radio" name="q5" value="D"> Unpredicted; underestimated; underestimated</label>
+<label><input type="radio" name="q5" value="E"> Unappreciated; unappreciated; indifferent</label>
+</div>
+
+<!-- Q6 -->
+<div class="question" id="q6">
+<p><b>6. Which sentences are grammatically CORRECT?</b></p>
+<label><input type="radio" name="q6" value="A"> 1, 2, and 3</label>
+<label><input type="radio" name="q6" value="B"> 4, 5, and 6</label>
+<label><input type="radio" name="q6" value="C"> 2, 3, and 5</label>
+<label><input type="radio" name="q6" value="D"> 1, 2, and 6</label>
+<label><input type="radio" name="q6" value="E"> 3, 4, and 5</label>
+</div>
+
+<!-- Q7 -->
+<div class="question" id="q7">
+<p><b>7. Which conditional sentences are grammatically INCORRECT?</b></p>
+<label><input type="radio" name="q7" value="A"> 1, 2, and 3</label>
+<label><input type="radio" name="q7" value="B"> 4, 5, and 6</label>
+<label><input type="radio" name="q7" value="C"> 2, 3, and 5</label>
+<label><input type="radio" name="q7" value="D"> 1, 2, and 6</label>
+<label><input type="radio" name="q7" value="E"> 3, 4, and 5</label>
+</div>
+
+<!-- Q8 -->
+<div class="question" id="q8">
+<p><b>8. Which is NOT likely to be true?</b></p>
+<label><input type="radio" name="q8" value="A"> Most youngsters love watching sports</label>
+<label><input type="radio" name="q8" value="B"> Most youngsters are academically competitive</label>
+<label><input type="radio" name="q8" value="C"> Most youngsters devote time to schoolwork</label>
+<label><input type="radio" name="q8" value="D"> Many youngsters devote time to sports</label>
+<label><input type="radio" name="q8" value="E"> Obesity among youngsters is increasing</label>
+</div>
+
+<!-- Q9 -->
+<div class="question" id="q9">
+<p><b>9. Arrange the sentences in a logical sequence.</b></p>
+<label><input type="radio" name="q9" value="A"> 45321</label>
+<label><input type="radio" name="q9" value="B"> 53421</label>
+<label><input type="radio" name="q9" value="C"> 45123</label>
+<label><input type="radio" name="q9" value="D"> 34521</label>
+<label><input type="radio" name="q9" value="E"> 31245</label>
+</div>
+
+<!-- Q10 -->
+<div class="question" id="q10">
+<p><b>10. Which conclusion is most reasonable?</b></p>
+<label><input type="radio" name="q10" value="A"> Blessing in disguise</label>
+<label><input type="radio" name="q10" value="B"> Both positive and negative effects</label>
+<label><input type="radio" name="q10" value="C"> More disadvantageous</label>
+<label><input type="radio" name="q10" value="D"> Benefitted more</label>
+<label><input type="radio" name="q10" value="E"> Double-edged sword for elderly</label>
+</div>
+
+<!-- Q11 -->
+<div class="question" id="q11">
+<p><b>11. Which option would MOST strengthen the author’s argument?</b></p>
+<label><input type="radio" name="q11" value="A"> Workers had no influence earlier</label>
+<label><input type="radio" name="q11" value="B"> Women were happy earlier</label>
+<label><input type="radio" name="q11" value="C"> Women had influence in unions</label>
+<label><input type="radio" name="q11" value="D"> Wage discrimination existed earlier</label>
+<label><input type="radio" name="q11" value="E"> Women unions voiced concerns</label>
+</div>
+
+<!-- Q12 -->
+<div class="question" id="q12">
+<p><b>12. Best summary of the author’s view on cravings?</b></p>
+<label><input type="radio" name="q12" value="A"> Cravings fulfil elusive emotional needs</label>
+<label><input type="radio" name="q12" value="B"> Reward learning explains cravings</label>
+<label><input type="radio" name="q12" value="C"> Brain-only explanation is flawed</label>
+<label><input type="radio" name="q12" value="D"> Cravings predict relapse</label>
+<label><input type="radio" name="q12" value="E"> Unexpected rewards drive cravings</label>
+</div>
+
+<!-- Q13 -->
+<div class="question" id="q13">
+<p><b>13. Why is connecting cravings only to the brain misleading?</b></p>
+<label><input type="radio" name="q13" value="A"> Cravings last long</label>
+<label><input type="radio" name="q13" value="B"> Purpose of cravings is misidentified</label>
+<label><input type="radio" name="q13" value="C"> Emotional experiences sought</label>
+<label><input type="radio" name="q13" value="D"> Reward receptors enable emotions</label>
+<label><input type="radio" name="q13" value="E"> Not physiological only</label>
+</div>
+
+<!-- Q14 -->
+<div class="question" id="q14">
+<p><b>14. What can BEST help a person avoid addictions?</b></p>
+<label><input type="radio" name="q14" value="A"> Seeking emotional experiences without drugs</label>
+<label><input type="radio" name="q14" value="B"> Ignoring dopamine</label>
+<label><input type="radio" name="q14" value="C"> Avoiding peers</label>
+<label><input type="radio" name="q14" value="D"> Responding to rewards</label>
+<label><input type="radio" name="q14" value="E"> Social connection and control</label>
+</div>
+
+<!-- Q15 -->
+<div class="question" id="q15">
+<p><b>15. Arrange the sentences logically.</b></p>
+<label><input type="radio" name="q15" value="A"> 45321</label>
+<label><input type="radio" name="q15" value="B"> 53421</label>
+<label><input type="radio" name="q15" value="C"> 45123</label>
+<label><input type="radio" name="q15" value="D"> 32541</label>
+<label><input type="radio" name="q15" value="E"> 31245</label>
+</div>
+
+<!-- Q16 -->
+<div class="question" id="q16">
+<p><b>16. Which best contrasts emotion regulation and affect labelling?</b></p>
+<label><input type="radio" name="q16" value="A"> Thinking vs controlling</label>
+<label><input type="radio" name="q16" value="B"> Control vs expression</label>
+<label><input type="radio" name="q16" value="C"> Less effective</label>
+<label><input type="radio" name="q16" value="D"> Conscious change vs putting feelings into words</label>
+<label><input type="radio" name="q16" value="E"> Stoic vs expressive</label>
+</div>
+
+<!-- Q17 -->
+<div class="question" id="q17">
+<p><b>17. Which can be inferred from the passage?</b></p>
+<label><input type="radio" name="q17" value="A"> Only negative emotions</label>
+<label><input type="radio" name="q17" value="B"> Affect labelling easier</label>
+<label><input type="radio" name="q17" value="C"> Divert thoughts</label>
+<label><input type="radio" name="q17" value="D"> Happiness linked to emotion control</label>
+<label><input type="radio" name="q17" value="E"> Image-based approach</label>
+</div>
+
+<!-- Q18 -->
+<div class="question" id="q18">
+<p><b>18. Which can be BEST concluded?</b></p>
+<label><input type="radio" name="q18" value="A"> Both are effective</label>
+<label><input type="radio" name="q18" value="B"> Affect labelling simpler</label>
+<label><input type="radio" name="q18" value="C"> Putting feelings into words changes emotions</label>
+<label><input type="radio" name="q18" value="D"> Works only for negative</label>
+<label><input type="radio" name="q18" value="E"> Divert mind</label>
+</div>
+
+<!-- Q19 -->
+<div class="question" id="q19">
+<p><b>19. Best characterisation of pandemic effects?</b></p>
+<label><input type="radio" name="q19" value="A"> Reading novels</label>
+<label><input type="radio" name="q19" value="B"> Bad period to endure</label>
+<label><input type="radio" name="q19" value="C"> Inarticulate people</label>
+<label><input type="radio" name="q19" value="D"> Existential crisis</label>
+<label><input type="radio" name="q19" value="E"> Sensory overload</label>
+</div>
+
+<!-- Q20 -->
+<div class="question" id="q20">
+<p><b>20. Best describes aphasia?</b></p>
+<label><input type="radio" name="q20" value="A"> Existential crisis</label>
+<label><input type="radio" name="q20" value="B"> Sensory overload</label>
+<label><input type="radio" name="q20" value="C"> Personal satisfaction</label>
+<label><input type="radio" name="q20" value="D"> Collective inability to communicate confidently</label>
+<label><input type="radio" name="q20" value="E"> Social division</label>
+</div>
+
+<!-- Q21 -->
+<div class="question" id="q21">
+<p><b>21. Which statement is NOT true?</b></p>
+<label><input type="radio" name="q21" value="A"> Time management remained same</label>
+<label><input type="radio" name="q21" value="B"> Solidarity reduced</label>
+<label><input type="radio" name="q21" value="C"> No personal fulfilment</label>
+<label><input type="radio" name="q21" value="D"> Mental health declined</label>
+<label><input type="radio" name="q21" value="E"> Sensory overload existed</label>
+</div>
+
+<!-- Q22 -->
+<div class="question" id="q22">
+<p><b>22. Final conclusion of Frankfurt passage?</b></p>
+<label><input type="radio" name="q22" value="A"> Coerced person morally responsible</label>
+<label><input type="radio" name="q22" value="B"> Y bears full responsibility</label>
+<label><input type="radio" name="q22" value="C"> No responsibility leads to repetition</label>
+<label><input type="radio" name="q22" value="D"> Only Y responsible</label>
+<label><input type="radio" name="q22" value="E"> Non-coerced not responsible</label>
+</div>
+
+<!-- Q23 -->
+<div class="question" id="q23">
+<p><b>23. Where do author and Frankfurt differ?</b></p>
+<label><input type="radio" name="q23" value="A"> Alternative of death</label>
+<label><input type="radio" name="q23" value="B"> Author yes, Frankfurt no</label>
+<label><input type="radio" name="q23" value="C"> Prior decision</label>
+<label><input type="radio" name="q23" value="D"> Frankfurt yes, author no</label>
+<label><input type="radio" name="q23" value="E"> Both responsible</label>
+</div>
+
+<!-- Q24 -->
+<div class="question" id="q24">
+<p><b>24. When will X be morally responsible?</b></p>
+<label><input type="radio" name="q24" value="A"> Always responsible</label>
+<label><input type="radio" name="q24" value="B"> If decided before coercion</label>
+<label><input type="radio" name="q24" value="C"> If death alternative exists</label>
+<label><input type="radio" name="q24" value="D"> Y responsible</label>
+<label><input type="radio" name="q24" value="E"> If uncaring about outcome</label>
+</div>
+
+<!-- Q25 -->
+<div class="question" id="q25">
+<p><b>25. Effect of eating the apple?</b></p>
+<label><input type="radio" name="q25" value="A"> Shocked</label>
+<label><input type="radio" name="q25" value="B"> Empowered</label>
+<label><input type="radio" name="q25" value="C"> Liberated with new knowledge</label>
+<label><input type="radio" name="q25" value="D"> Closer to God</label>
+<label><input type="radio" name="q25" value="E"> Mind ran wild</label>
+</div>
+
+<!-- Q26 -->
+<div class="question" id="q26">
+<p><b>26. What does the summit signify?</b></p>
+<label><input type="radio" name="q26" value="A"> Leaving enslavement</label>
+<label><input type="radio" name="q26" value="B"> Crossing areas</label>
+<label><input type="radio" name="q26" value="C"> Self-realisation and knowledge</label>
+<label><input type="radio" name="q26" value="D"> Beyond abilities</label>
+<label><input type="radio" name="q26" value="E"> Overcoming weakness</label>
+</div>
+
+</div>
+<div id="DM" class="section hidden">
+
+<h3>Decision Making Section (24 Questions)</h3>
+
+<!-- Q27 -->
+<div class="question" id="q27">
+<p><b>27. What should Dr. Ayesha do in descending order of priority?</b></p>
+<label><input type="radio" name="q27" value="A"> b, c, and a</label>
+<label><input type="radio" name="q27" value="B"> a, b</label>
+<label><input type="radio" name="q27" value="C"> c, a</label>
+<label><input type="radio" name="q27" value="D"> b, a and c</label>
+<label><input type="radio" name="q27" value="E"> c, b</label>
+</div>
+
+<!-- Q28 -->
+<div class="question" id="q28">
+<p><b>28. Best course of action for the next class?</b></p>
+<label><input type="radio" name="q28" value="A"> Reschedule and buy laptop</label>
+<label><input type="radio" name="q28" value="B"> Take class on smartphone</label>
+<label><input type="radio" name="q28" value="C"> Borrow husband’s laptop</label>
+<label><input type="radio" name="q28" value="D"> Borrow kid’s smartphone and order laptop</label>
+<label><input type="radio" name="q28" value="E"> Cancel class</label>
+</div>
+
+<!-- Q29 -->
+<div class="question" id="q29">
+<p><b>29. Who is most responsible for the incident?</b></p>
+<label><input type="radio" name="q29" value="A"> Dr. Ayesha for serving tea</label>
+<label><input type="radio" name="q29" value="B"> Servant lacked common sense</label>
+<label><input type="radio" name="q29" value="C"> Servant not careful enough</label>
+<label><input type="radio" name="q29" value="D"> Dr. Ayesha for not reminding</label>
+<label><input type="radio" name="q29" value="E"> Children playing football</label>
+</div>
+
+<!-- Q30 -->
+<div class="question" id="q30">
+<p><b>30. Best solution Shubhi can offer?</b></p>
+<label><input type="radio" name="q30" value="A"> Threaten consultants</label>
+<label><input type="radio" name="q30" value="B"> Offer perquisites to Shyam</label>
+<label><input type="radio" name="q30" value="C"> Promise future conversion</label>
+<label><input type="radio" name="q30" value="D"> Convert full-timers to consultants</label>
+<label><input type="radio" name="q30" value="E"> Offer salary hike equal to benefits</label>
+</div>
+
+<!-- Q31 -->
+<div class="question" id="q31">
+<p><b>31. Which will best help Shyam convince the CEO?</b></p>
+<label><input type="radio" name="q31" value="A"> Skills not unique</label>
+<label><input type="radio" name="q31" value="B"> Consultants can find jobs</label>
+<label><input type="radio" name="q31" value="C"> Revenue outweighs cost</label>
+<label><input type="radio" name="q31" value="D"> Mental health impact</label>
+<label><input type="radio" name="q31" value="E"> Advanced age consultants</label>
+</div>
+
+<!-- Q32 -->
+<div class="question" id="q32">
+<p><b>32. Best measure to redeem company’s reputation?</b></p>
+<label><input type="radio" name="q32" value="A"> CEO resigns</label>
+<label><input type="radio" name="q32" value="B"> Offer lower fees</label>
+<label><input type="radio" name="q32" value="C"> Issue defensive media statement</label>
+<label><input type="radio" name="q32" value="D"> Accept all demands and hikes</label>
+<label><input type="radio" name="q32" value="E"> Release proof consultants preferred status</label>
+</div>
+
+<!-- Q33 -->
+<div class="question" id="q33">
+<p><b>33. Best reason Ravi should not accept Ketaki’s request?</b></p>
+<label><input type="radio" name="q33" value="A"> Alma mater bias</label>
+<label><input type="radio" name="q33" value="B"> Clients prefer experience</label>
+<label><input type="radio" name="q33" value="C"> Gender bias</label>
+<label><input type="radio" name="q33" value="D"> Needs training</label>
+<label><input type="radio" name="q33" value="E"> Professor recommendation</label>
+</div>
+
+<!-- Q34 -->
+<div class="question" id="q34">
+<p><b>34. Best way Ravi should respond?</b></p>
+<label><input type="radio" name="q34" value="A"> Remind instructions</label>
+<label><input type="radio" name="q34" value="B"> Thank and move on</label>
+<label><input type="radio" name="q34" value="C"> Ask to take notes</label>
+<label><input type="radio" name="q34" value="D"> Introduce as promising youngster</label>
+<label><input type="radio" name="q34" value="E"> Acknowledge but defer</label>
+</div>
+
+<!-- Q35 -->
+<div class="question" id="q35">
+<p><b>35. What should Ketaki do?</b></p>
+<label><input type="radio" name="q35" value="A"> Ask Suman to mind business</label>
+<label><input type="radio" name="q35" value="B"> Confide unofficially in HR</label>
+<label><input type="radio" name="q35" value="C"> Confront Ravi</label>
+<label><input type="radio" name="q35" value="D"> Do nothing unless something happens</label>
+<label><input type="radio" name="q35" value="E"> Ask female colleagues</label>
+</div>
+
+<!-- Q36 -->
+<div class="question" id="q36">
+<p><b>36. Strongest argument to reduce damages?</b></p>
+<label><input type="radio" name="q36" value="A"> Users knew risks</label>
+<label><input type="radio" name="q36" value="B"> Low profits</label>
+<label><input type="radio" name="q36" value="C"> Secured remaining users</label>
+<label><input type="radio" name="q36" value="D"> Hacker tech advanced</label>
+<label><input type="radio" name="q36" value="E"> Cybersecurity evolving</label>
+</div>
+
+<!-- Q37 -->
+<div class="question" id="q37">
+<p><b>37. Best course of action for Siya?</b></p>
+<label><input type="radio" name="q37" value="A"> Client interest first</label>
+<label><input type="radio" name="q37" value="B"> Ethical duty to report</label>
+<label><input type="radio" name="q37" value="C"> Consult board</label>
+<label><input type="radio" name="q37" value="D"> Avoid complicating case</label>
+<label><input type="radio" name="q37" value="E"> Discuss with CEO first</label>
+</div>
+
+<!-- Q38 -->
+<div class="question" id="q38">
+<p><b>38. Best measure to stop employee exit?</b></p>
+<label><input type="radio" name="q38" value="A"> Legal notices</label>
+<label><input type="radio" name="q38" value="B"> Assure recovery plan</label>
+<label><input type="radio" name="q38" value="C"> Say profits fluctuate</label>
+<label><input type="radio" name="q38" value="D"> Promotions</label>
+<label><input type="radio" name="q38" value="E"> Penalty clause</label>
+</div>
+
+<!-- Q39 -->
+<div class="question" id="q39">
+<p><b>39. Best sequence of measures (decreasing immediacy)?</b></p>
+<label><input type="radio" name="q39" value="A"> 21345</label>
+<label><input type="radio" name="q39" value="B"> 53421</label>
+<label><input type="radio" name="q39" value="C"> 13245</label>
+<label><input type="radio" name="q39" value="D"> 31542</label>
+<label><input type="radio" name="q39" value="E"> 12345</label>
+</div>
+
+<!-- Q40 -->
+<div class="question" id="q40">
+<p><b>40. Which will help understand people’s behaviour?</b></p>
+<label><input type="radio" name="q40" value="A"> 1 & 4</label>
+<label><input type="radio" name="q40" value="B"> 1, 2 & 3</label>
+<label><input type="radio" name="q40" value="C"> 3, 4 & 5</label>
+<label><input type="radio" name="q40" value="D"> 1–5</label>
+<label><input type="radio" name="q40" value="E"> 2–5</label>
+</div>
+
+<!-- Q41 -->
+<div class="question" id="q41">
+<p><b>41. Most effective measure?</b></p>
+<label><input type="radio" name="q41" value="A"> Bigger warning signs</label>
+<label><input type="radio" name="q41" value="B"> Display death stats</label>
+<label><input type="radio" name="q41" value="C"> Graphic posters</label>
+<label><input type="radio" name="q41" value="D"> Announcements</label>
+<label><input type="radio" name="q41" value="E"> Televised features</label>
+</div>
+
+<!-- Q42 -->
+<div class="question" id="q42">
+<p><b>42. Best order of effectiveness?</b></p>
+<label><input type="radio" name="q42" value="A"> b, a, c, d</label>
+<label><input type="radio" name="q42" value="B"> c, d, a, b</label>
+<label><input type="radio" name="q42" value="C"> a, c, b, d</label>
+<label><input type="radio" name="q42" value="D"> c, b, a, d</label>
+<label><input type="radio" name="q42" value="E"> c, d, b, a</label>
+</div>
+
+<!-- Q43 -->
+<div class="question" id="q43">
+<p><b>43. Best way to shortlist 180 candidates?</b></p>
+<label><input type="radio" name="q43" value="A"> Academic tests</label>
+<label><input type="radio" name="q43" value="B"> Qualifications</label>
+<label><input type="radio" name="q43" value="C"> Reputation</label>
+<label><input type="radio" name="q43" value="D"> Age</label>
+<label><input type="radio" name="q43" value="E"> Lottery</label>
+</div>
+
+<!-- Q44 -->
+<div class="question" id="q44">
+<p><b>44. What should be your response?</b></p>
+<label><input type="radio" name="q44" value="A"> Commit to nothing</label>
+<label><input type="radio" name="q44" value="B"> Deny request</label>
+<label><input type="radio" name="q44" value="C"> Submit expert name</label>
+<label><input type="radio" name="q44" value="D"> Report authorities</label>
+<label><input type="radio" name="q44" value="E"> Agree</label>
+</div>
+
+<!-- Q45 -->
+<div class="question" id="q45">
+<p><b>45. Best action as director?</b></p>
+<label><input type="radio" name="q45" value="A"> Question parents</label>
+<label><input type="radio" name="q45" value="B"> Assure future safety</label>
+<label><input type="radio" name="q45" value="C"> Impose curfew</label>
+<label><input type="radio" name="q45" value="D"> Appoint female guards now</label>
+<label><input type="radio" name="q45" value="E"> Dress code for girls</label>
+</div>
+
+<!-- Q46 -->
+<div class="question" id="q46">
+<p><b>46. Next move of students and parents?</b></p>
+<label><input type="radio" name="q46" value="A"> Leak to media</label>
+<label><input type="radio" name="q46" value="B"> Withdraw wards</label>
+<label><input type="radio" name="q46" value="C"> Write to ministry & police</label>
+<label><input type="radio" name="q46" value="D"> Write to ministries</label>
+<label><input type="radio" name="q46" value="E"> Complain to board</label>
+</div>
+
+<!-- Q47 -->
+<div class="question" id="q47">
+<p><b>47. What should the director do?</b></p>
+<label><input type="radio" name="q47" value="A"> Public statement</label>
+<label><input type="radio" name="q47" value="B"> Shift campus back</label>
+<label><input type="radio" name="q47" value="C"> Follow student forums</label>
+<label><input type="radio" name="q47" value="D"> Safety committee</label>
+<label><input type="radio" name="q47" value="E"> Facilities committee</label>
+</div>
+
+</div>
+
+<div id="QADI" class="section hidden">
+
+<h3>QADI Section (25 Questions)</h3>
+
+<!-- Q48 -->
+<div class="question" id="q48">
+<p><b>48. If the sum of first n natural numbers is 210, find n.</b></p>
+<label><input type="radio" name="q48" value="A"> 19</label>
+<label><input type="radio" name="q48" value="B"> 20</label>
+<label><input type="radio" name="q48" value="C"> 21</label>
+<label><input type="radio" name="q48" value="D"> 22</label>
+<label><input type="radio" name="q48" value="E"> 23</label>
+</div>
+
+<!-- Q49 -->
+<div class="question" id="q49">
+<p><b>49. A train covers a distance in 5 hours at 60 km/h. How much time will it take at 75 km/h?</b></p>
+<label><input type="radio" name="q49" value="A"> 3 hrs</label>
+<label><input type="radio" name="q49" value="B"> 4 hrs</label>
+<label><input type="radio" name="q49" value="C"> 5 hrs</label>
+<label><input type="radio" name="q49" value="D"> 6 hrs</label>
+<label><input type="radio" name="q49" value="E"> 7 hrs</label>
+</div>
+
+<!-- Q50 -->
+<div class="question" id="q50">
+<p><b>50. The ratio of ages of A and B is 4:5. After 10 years, it becomes 5:6. Find present age of A.</b></p>
+<label><input type="radio" name="q50" value="A"> 20</label>
+<label><input type="radio" name="q50" value="B"> 24</label>
+<label><input type="radio" name="q50" value="C"> 28</label>
+<label><input type="radio" name="q50" value="D"> 32</label>
+<label><input type="radio" name="q50" value="E"> 36</label>
+</div>
+
+<!-- Q51 -->
+<div class="question" id="q51">
+<p><b>51. A can do a work in 10 days, B in 15 days. How long will they take together?</b></p>
+<label><input type="radio" name="q51" value="A"> 5 days</label>
+<label><input type="radio" name="q51" value="B"> 6 days</label>
+<label><input type="radio" name="q51" value="C"> 7.5 days</label>
+<label><input type="radio" name="q51" value="D"> 8 days</label>
+<label><input type="radio" name="q51" value="E"> 9 days</label>
+</div>
+
+<!-- Q52 -->
+<div class="question" id="q52">
+<p><b>52. If x + 1/x = 5, find x² + 1/x².</b></p>
+<label><input type="radio" name="q52" value="A"> 23</label>
+<label><input type="radio" name="q52" value="B"> 25</label>
+<label><input type="radio" name="q52" value="C"> 27</label>
+<label><input type="radio" name="q52" value="D"> 29</label>
+<label><input type="radio" name="q52" value="E"> 31</label>
+</div>
+
+<!-- Q53 -->
+<div class="question" id="q53">
+<p><b>53. The average of 8 numbers is 15. If two numbers 10 and 20 are replaced by 12 and 18, what is the new average?</b></p>
+<label><input type="radio" name="q53" value="A"> 15</label>
+<label><input type="radio" name="q53" value="B"> 15.25</label>
+<label><input type="radio" name="q53" value="C"> 15.5</label>
+<label><input type="radio" name="q53" value="D"> 16</label>
+<label><input type="radio" name="q53" value="E"> 14.75</label>
+</div>
+
+<!-- Q54 -->
+<div class="question" id="q54">
+<p><b>54. If the cost price of 20 articles is equal to the selling price of 16 articles, find the profit %.</b></p>
+<label><input type="radio" name="q54" value="A"> 20%</label>
+<label><input type="radio" name="q54" value="B"> 25%</label>
+<label><input type="radio" name="q54" value="C"> 30%</label>
+<label><input type="radio" name="q54" value="D"> 35%</label>
+<label><input type="radio" name="q54" value="E"> 40%</label>
+</div>
+
+<!-- Q55 -->
+<div class="question" id="q55">
+<p><b>55. A sum becomes double in 5 years at simple interest. What is the rate?</b></p>
+<label><input type="radio" name="q55" value="A"> 10%</label>
+<label><input type="radio" name="q55" value="B"> 15%</label>
+<label><input type="radio" name="q55" value="C"> 20%</label>
+<label><input type="radio" name="q55" value="D"> 25%</label>
+<label><input type="radio" name="q55" value="E"> 30%</label>
+</div>
+
+<!-- Q56 -->
+<div class="question" id="q56">
+<p><b>56. Find the next term: 2, 6, 12, 20, ?</b></p>
+<label><input type="radio" name="q56" value="A"> 28</label>
+<label><input type="radio" name="q56" value="B"> 30</label>
+<label><input type="radio" name="q56" value="C"> 32</label>
+<label><input type="radio" name="q56" value="D"> 34</label>
+<label><input type="radio" name="q56" value="E"> 36</label>
+</div>
+
+<!-- Q57 -->
+<div class="question" id="q57">
+<p><b>57. If the radius of a circle is doubled, how many times does the area increase?</b></p>
+<label><input type="radio" name="q57" value="A"> 2</label>
+<label><input type="radio" name="q57" value="B"> 3</label>
+<label><input type="radio" name="q57" value="C"> 4</label>
+<label><input type="radio" name="q57" value="D"> 6</label>
+<label><input type="radio" name="q57" value="E"> 8</label>
+</div>
+
+<!-- Q58 -->
+<div class="question" id="q58">
+<p><b>58. The difference between compound interest and simple interest on a sum for 2 years at 10% is?</b></p>
+<label><input type="radio" name="q58" value="A"> 1%</label>
+<label><input type="radio" name="q58" value="B"> 2%</label>
+<label><input type="radio" name="q58" value="C"> 3%</label>
+<label><input type="radio" name="q58" value="D"> 4%</label>
+<label><input type="radio" name="q58" value="E"> 5%</label>
+</div>
+
+<!-- Q59 -->
+<div class="question" id="q59">
+<p><b>59. If log₁₀x = 2, then x equals?</b></p>
+<label><input type="radio" name="q59" value="A"> 10</label>
+<label><input type="radio" name="q59" value="B"> 50</label>
+<label><input type="radio" name="q59" value="C"> 100</label>
+<label><input type="radio" name="q59" value="D"> 200</label>
+<label><input type="radio" name="q59" value="E"> 1000</label>
+</div>
+
+<!-- Q60 -->
+<div class="question" id="q60">
+<p><b>60. The probability of getting a head when a coin is tossed is?</b></p>
+<label><input type="radio" name="q60" value="A"> 0</label>
+<label><input type="radio" name="q60" value="B"> 1</label>
+<label><input type="radio" name="q60" value="C"> 1/2</label>
+<label><input type="radio" name="q60" value="D"> 1/3</label>
+<label><input type="radio" name="q60" value="E"> 2/3</label>
+</div>
+
+<!-- Q61 -->
+<div class="question" id="q61">
+<p><b>61. What is the value of √144?</b></p>
+<label><input type="radio" name="q61" value="A"> 10</label>
+<label><input type="radio" name="q61" value="B"> 11</label>
+<label><input type="radio" name="q61" value="C"> 12</label>
+<label><input type="radio" name="q61" value="D"> 13</label>
+<label><input type="radio" name="q61" value="E"> 14</label>
+</div>
+
+<!-- Q62 -->
+<div class="question" id="q62">
+<p><b>62. The HCF of 24 and 36 is?</b></p>
+<label><input type="radio" name="q62" value="A"> 6</label>
+<label><input type="radio" name="q62" value="B"> 8</label>
+<label><input type="radio" name="q62" value="C"> 10</label>
+<label><input type="radio" name="q62" value="D"> 12</label>
+<label><input type="radio" name="q62" value="E"> 18</label>
+</div>
+
+<!-- Q63 -->
+<div class="question" id="q63">
+<p><b>63. A shopkeeper gives 10% discount on marked price and still gains 20%. What is the marked price if cost price is 100?</b></p>
+<label><input type="radio" name="q63" value="A"> 120</label>
+<label><input type="radio" name="q63" value="B"> 130</label>
+<label><input type="radio" name="q63" value="C"> 133.33</label>
+<label><input type="radio" name="q63" value="D"> 140</label>
+<label><input type="radio" name="q63" value="E"> 150</label>
+</div>
+
+<!-- Q64 -->
+<div class="question" id="q64">
+<p><b>64. If the angles of a triangle are in ratio 2:3:4, find the largest angle.</b></p>
+<label><input type="radio" name="q64" value="A"> 40°</label>
+<label><input type="radio" name="q64" value="B"> 60°</label>
+<label><input type="radio" name="q64" value="C"> 80°</label>
+<label><input type="radio" name="q64" value="D"> 90°</label>
+<label><input type="radio" name="q64" value="E"> 100°</label>
+</div>
+
+<!-- Q65 -->
+<div class="question" id="q65">
+<p><b>65. Find the number of prime numbers between 1 and 20.</b></p>
+<label><input type="radio" name="q65" value="A"> 6</label>
+<label><input type="radio" name="q65" value="B"> 7</label>
+<label><input type="radio" name="q65" value="C"> 8</label>
+<label><input type="radio" name="q65" value="D"> 9</label>
+<label><input type="radio" name="q65" value="E"> 10</label>
+</div>
+
+<!-- Q66 -->
+<div class="question" id="q66">
+<p><b>66. If a number is increased by 20% and then decreased by 20%, what is the net change?</b></p>
+<label><input type="radio" name="q66" value="A"> No change</label>
+<label><input type="radio" name="q66" value="B"> 2% decrease</label>
+<label><input type="radio" name="q66" value="C"> 4% decrease</label>
+<label><input type="radio" name="q66" value="D"> 4% increase</label>
+<label><input type="radio" name="q66" value="E"> 2% increase</label>
+</div>
+
+<!-- Q67 -->
+<div class="question" id="q67">
+<p><b>67. The average age of 10 people is 30. If one person aged 40 leaves and another joins, the average becomes 29. What is the age of the new person?</b></p>
+<label><input type="radio" name="q67" value="A"> 20</label>
+<label><input type="radio" name="q67" value="B"> 25</label>
+<label><input type="radio" name="q67" value="C"> 30</label>
+<label><input type="radio" name="q67" value="D"> 35</label>
+<label><input type="radio" name="q67" value="E"> 40</label>
+</div>
+
+<!-- Q68 -->
+<div class="question" id="q68">
+<p><b>68. Find the value of 3³ + 4³.</b></p>
+<label><input type="radio" name="q68" value="A"> 91</label>
+<label><input type="radio" name="q68" value="B"> 100</label>
+<label><input type="radio" name="q68" value="C"> 125</label>
+<label><input type="radio" name="q68" value="D"> 64</label>
+<label><input type="radio" name="q68" value="E"> 81</label>
+</div>
+
+<!-- Q69 -->
+<div class="question" id="q69">
+<p><b>69. A man walks 10 km north, then 10 km east. How far is he from the starting point?</b></p>
+<label><input type="radio" name="q69" value="A"> 10 km</label>
+<label><input type="radio" name="q69" value="B"> 14.14 km</label>
+<label><input type="radio" name="q69" value="C"> 20 km</label>
+<label><input type="radio" name="q69" value="D"> 15 km</label>
+<label><input type="radio" name="q69" value="E"> 12 km</label>
+</div>
+
+<!-- Q70 -->
+<div class="question" id="q70">
+<p><b>70. If the perimeter of a square is 40 cm, find its area.</b></p>
+<label><input type="radio" name="q70" value="A"> 64</label>
+<label><input type="radio" name="q70" value="B"> 81</label>
+<label><input type="radio" name="q70" value="C"> 100</label>
+<label><input type="radio" name="q70" value="D"> 121</label>
+<label><input type="radio" name="q70" value="E"> 144</label>
+</div>
+
+<!-- Q71 -->
+<div class="question" id="q71">
+<p><b>71. What is the value of (2³ × 5²)?</b></p>
+<label><input type="radio" name="q71" value="A"> 100</label>
+<label><input type="radio" name="q71" value="B"> 200</label>
+<label><input type="radio" name="q71" value="C"> 250</label>
+<label><input type="radio" name="q71" value="D"> 400</label>
+<label><input type="radio" name="q71" value="E"> 500</label>
+</div>
+
+<!-- Q72 -->
+<div class="question" id="q72">
+<p><b>72. If the cost price is 80 and selling price is 100, find the profit %.</b></p>
+<label><input type="radio" name="q72" value="A"> 20%</label>
+<label><input type="radio" name="q72" value="B"> 22%</label>
+<label><input type="radio" name="q72" value="C"> 25%</label>
+<label><input type="radio" name="q72" value="D"> 30%</label>
+<label><input type="radio" name="q72" value="E"> 35%</label>
+</div>
+
+</div>
